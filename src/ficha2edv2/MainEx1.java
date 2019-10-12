@@ -35,7 +35,7 @@ public class MainEx1 {
         lista.add(pessoa3);
         lista.add(pessoa4);
         
-        //lista.print();
+        lista.print();
         System.out.println("");
         
         //teste remover uma Pessoa
@@ -44,7 +44,7 @@ public class MainEx1 {
         lista.print();
         System.out.println("");
         
-        lista.remove(pessoa1);
+        lista.remove(pessoa3);
         
         lista.print();
         

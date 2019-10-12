@@ -99,7 +99,7 @@ public class LinkedList<T> {
         Node<T> current = new Node<>();
         current = this.head;
         
-        for(int i=0; i<this.count; i++){
+        while(current!=null){
             System.out.println(current.getElement().toString());
             current = current.getNext();
         }
