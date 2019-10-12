@@ -81,7 +81,7 @@ public class LinkedList<T> {
                         previous.setNext(current.getNext());
                         this.count--;
                         System.out.println("Item removido!");
-                        break; //passar para variável
+                        break;
                     }
                     else{
                         previous = current;
