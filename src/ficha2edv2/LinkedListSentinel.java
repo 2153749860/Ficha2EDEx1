@@ -53,6 +53,26 @@ public class LinkedListSentinel<T> {
         this.head.setNext(newNode);
         this.count++;
     }
+    
+    public void remove(T element){
+        Node<T> current = new Node<>();
+        Node<T> previous = new Node<>();
+        
+        current = this.head.getNext();
+        previous = this.head;
+        
+        for(int i=0; i<this.count; i++){
+            if(current.getElement().equals(element)){
+                previous.setNext(current.getNext());
+                this.count--;
+                break;
+            }
+            else{
+                previous = current;
+                current = current.getNext();
+            }
+        }
+    }
 
     public void print() {
         Node<T> current = new Node<>();
@@ -65,7 +85,6 @@ public class LinkedListSentinel<T> {
                 System.out.println(current.getElement().toString());
             }
             current = current.getNext();
-
         }
     }
 

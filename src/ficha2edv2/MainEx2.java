@@ -23,8 +23,17 @@ public class MainEx2 {
         
         LinkedListSentinel lista = new LinkedListSentinel();
         
+        //Teste adicionar pessoas
         lista.add(pessoa1);
         lista.add(pessoa2);
+        lista.add(pessoa3);
+        lista.add(pessoa4);
+        
+        lista.print();
+        System.out.println("");
+        
+        //Teste remover pessoa
+        lista.remove(pessoa4);
         
         lista.print();
     }
