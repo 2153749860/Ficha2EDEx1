@@ -59,7 +59,10 @@ public class LinkedList<T> {
         this.count++;
     }
     
+    
+    
     public void remove(T element){
+        boolean found = false;
         if(this.count == 0){
             System.out.println("Lista vazia!");
         }
@@ -76,12 +79,12 @@ public class LinkedList<T> {
                 current = this.head.getNext();
                 previous = this.head;
                 
-                for(int i=1; i<this.count; i++){
+                while(current!=null && !found){
                     if(current.getElement().equals(element)){
                         previous.setNext(current.getNext());
                         this.count--;
                         System.out.println("Item removido!");
-                        break;
+                        found = true;
                     }
                     else{
                         previous = current;
