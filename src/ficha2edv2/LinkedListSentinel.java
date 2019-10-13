@@ -16,34 +16,14 @@ public class LinkedListSentinel<T> {
     private int count;
 
     public LinkedListSentinel() {
-        this.head = new Node();
-        this.tail = new Node();
+        this.head = new Node(null);
+        this.tail = new Node(null);
         this.count = 0;
         this.head.setNext(this.tail);
     }
 
-    public Node<T> getHead() {
-        return head;
-    }
-
-    public void setHead(Node<T> head) {
-        this.head = head;
-    }
-
-    public Node<T> getTail() {
-        return tail;
-    }
-
-    public void setTail(Node<T> tail) {
-        this.tail = tail;
-    }
-
     public int getCount() {
         return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
     }
 
     public void add(T element) {
@@ -54,30 +34,29 @@ public class LinkedListSentinel<T> {
         this.count++;
     }
 
-    public void remove(T element){
+    public boolean remove(T element){
         boolean found = false;
-        Node<T> current = new Node<>();
-        Node<T> previous = new Node<>();
+        Node<T> current = this.head.getNext();
+        Node<T> previous = this.head;
         
-        current = this.head.getNext();
-        previous = this.head;
-        
-        while(current!=null && !found){
+        while(current.getElement() == null){
             if(current.getElement().equals(element)){
                 previous.setNext(current.getNext());
                 this.count--;
-                found = true;
+                return true;
             }
             else{
                 previous = current;
                 current = current.getNext();
             }
         }
+        
+        return false;
     }
 
     public void print() {
-        Node<T> current = new Node<>();
-        current = this.head.getNext();
+        Node<T> current = this.head.getNext();
+        
         
         while(current!=this.tail){
             System.out.println(current.getElement().toString());
