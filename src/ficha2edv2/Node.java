@@ -15,11 +15,7 @@ public class Node<T> {
 
     public Node(T element) {
         this.element = element;
-    }
-
-    public Node() {
         this.next = null;
-        this.element = null;
     }
 
     public Node<T> getNext() {
@@ -32,10 +28,6 @@ public class Node<T> {
 
     public T getElement() {
         return element;
-    }
-
-    public void setElement(T element) {
-        this.element = element;
     }
     
 }
