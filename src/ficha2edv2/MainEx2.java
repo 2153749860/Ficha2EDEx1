@@ -21,7 +21,7 @@ public class MainEx2 {
         Pessoa pessoa3 = new Pessoa("Carlos", 21);
         Pessoa pessoa4 = new Pessoa("Joao", 21);
         
-        LinkedListSentinel lista = new LinkedListSentinel();
+        LinkedListSentinel<Pessoa> lista = new LinkedListSentinel<>();
         
         //Teste adicionar pessoas
         lista.add(pessoa1);

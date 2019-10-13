@@ -49,7 +49,6 @@ public class LinkedList<T> {
             current = this.head;
             boolean found = false;
 
-            
             while (current != null && !found) {
                 if (current.getElement().equals(element)) {
                     found = true;
@@ -58,22 +57,26 @@ public class LinkedList<T> {
                     current = current.getNext();
                 }
             }
-            
+
             if (found) {
                 if (previous == null) {
+                    if(this.count==1){
+                        this.tail = null;
+                    }
                     this.head = current.getNext();
-                    this.count--;
-                    return true;
-                } else {
+                } else { 
                     previous.setNext(current.getNext());
-                    this.count--;
-                    return true;
                 }
-            }
-            else{
+                if(current.equals(this.tail)){
+                    this.tail = previous;
+                }
+                this.count--;
+                return true;
+            } else {
                 System.out.println("Item não existe na lista");
                 return false;
             }
+
         }
     }
 
@@ -83,6 +86,15 @@ public class LinkedList<T> {
         while (current != null) {
             System.out.println(current.getElement().toString());
             current = current.getNext();
+        }
+        
+        System.out.println("");
+        
+        if(this.head!=null){
+            System.out.println(this.head.getElement().toString());
+        }
+        if(this.tail!=null){
+            System.out.println(this.tail.getElement().toString());
         }
     }
 }

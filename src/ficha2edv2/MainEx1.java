@@ -39,14 +39,14 @@ public class MainEx1 {
         System.out.println("");
         
         //teste remover uma Pessoa
-        lista.remove(pessoa4);
+        lista.remove(pessoa1);
         
         lista.print();
-        System.out.println("");
+        //System.out.println("");
         
-        lista.remove(pessoa3);
+        //lista.remove(pessoa3);
         
-        lista.print();
+        //lista.print();
         
     }
     
