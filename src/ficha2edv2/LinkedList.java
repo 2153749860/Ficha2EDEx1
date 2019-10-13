@@ -10,8 +10,9 @@ package ficha2edv2;
  * @author tiago
  */
 public class LinkedList<T> {
+
     private int count;
-    
+
     private Node<T> head;
     private Node<T> tail;
 
@@ -24,61 +25,62 @@ public class LinkedList<T> {
     public int getCount() {
         return count;
     }
-    
-    public void add(T element){
+
+    public void add(T element) {
         Node<T> newNode = new Node<T>(element);
-        
-        if(this.count == 0){
+
+        if (this.count == 0) {
             this.head = newNode;
             this.tail = newNode;
-        }
-        else{
+        } else {
             newNode.setNext(this.head);
             this.head = newNode;
         }
         this.count++;
     }
-    
-    
-    
-    public void remove(T element){
-        boolean found = false;
-        if(this.count == 0){
+
+    public boolean remove(T element) {
+        if (this.count == 0) {
             System.out.println("Lista vazia!");
-        }
-        else{
-            Node<T> previous = new Node<>();
-            Node<T> current = new Node<>();
+            return false;
+        } else {
+            Node<T> previous, current;
+            previous = null;
+            current = this.head;
+            boolean found = false;
+
             
-            if(this.head.getElement().equals(element)){
-                this.head = this.head.getNext();
-                this.count--;
-                System.out.println("Item removido!");
+            while (current != null && !found) {
+                if (current.getElement().equals(element)) {
+                    found = true;
+                } else {
+                    previous = current;
+                    current = current.getNext();
+                }
+            }
+            
+            if (found) {
+                if (previous == null) {
+                    this.head = current.getNext();
+                    this.count--;
+                    return true;
+                } else {
+                    previous.setNext(current.getNext());
+                    this.count--;
+                    return true;
+                }
             }
             else{
-                current = this.head.getNext();
-                previous = this.head;
-                
-                while(current!=null && !found){
-                    if(current.getElement().equals(element)){
-                        previous.setNext(current.getNext());
-                        this.count--;
-                        System.out.println("Item removido!");
-                        found = true;
-                    }
-                    else{
-                        previous = current;
-                        current = current.getNext();
-                    }
-                }
-            } 
+                System.out.println("Item não existe na lista");
+                return false;
+            }
         }
     }
-    
-    public void print(){
+
+    public void print() {
         Node<T> current = this.head;
-        
-        while(current!=null){
+
+        while (current != null) {
             System.out.println(current.getElement().toString());
             current = current.getNext();
         }
