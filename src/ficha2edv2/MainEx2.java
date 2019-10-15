@@ -15,27 +15,34 @@ public class MainEx2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //instancia que vao ser usadas para testar
         Pessoa pessoa1 = new Pessoa("Tiago", 20);
         Pessoa pessoa2 = new Pessoa("Vitor", 21);
         Pessoa pessoa3 = new Pessoa("Carlos", 21);
         Pessoa pessoa4 = new Pessoa("Joao", 21);
-        
+
+        //instanciaçao de uma lista
         LinkedListSentinel<Pessoa> lista = new LinkedListSentinel<>();
-        
-        //Teste adicionar pessoas
+        // teste de adicionar pessoas
         lista.add(pessoa1);
         lista.add(pessoa2);
         lista.add(pessoa3);
-        lista.add(pessoa4);
-        
+        System.out.println("Teste de adicionar pessoas:");
         lista.print();
-        System.out.println("");
+
+       //teste remover uma instancia nao existente na lista
+        System.out.println("\nTeste remover uma instancia nao existente na lista, deve dar return false :"+lista.remove(pessoa4));
         
-        //Teste remover pessoa
-        lista.remove(pessoa4);
-        lista.remove(pessoa4);
+        // teste de remover a primeira
+        System.out.println("\nTeste para remover a primeira, deve dar return true: "+lista.remove(pessoa3));
+        lista.print(); 
         
+        // teste para remover a ultima
+       System.out.println("\nTeste para remover a ultima, deve dar return true: "+lista.remove(pessoa1));
+       lista.print();
+       
+       //teste para remover quando so existe um elemento na lista
+        System.out.println("\nTeste para remover quando so existe um elemento na lista, deve dar return true: "+lista.remove(pessoa2));
         lista.print();
     }
     
