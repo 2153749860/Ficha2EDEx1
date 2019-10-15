@@ -58,7 +58,6 @@ public class LinkedListSentinel<T> {
      * @return valor booleano conforme o sucesso ou insucesso do método
      */
     public boolean remove(T element) {
-        boolean found = false;
         Node<T> current = this.head.getNext();
         Node<T> previous = this.head;
 
@@ -66,14 +65,14 @@ public class LinkedListSentinel<T> {
             if (current.getElement().equals(element)) {
                 previous.setNext(current.getNext());
                 this.count--;
-                return found;
+                return true;
             } else {
                 previous = current;
                 current = current.getNext();
             }
         }
 
-        return found;
+        return false;
     }
 
     /**
