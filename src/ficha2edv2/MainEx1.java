@@ -39,7 +39,7 @@ public class MainEx1 {
         System.out.println("");
         
         //teste remover uma Pessoa
-        lista.remove(pessoa1);
+        lista.remove(pessoa4);
         
         lista.print();
         //System.out.println("");
