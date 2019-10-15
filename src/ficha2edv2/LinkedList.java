@@ -7,24 +7,40 @@ package ficha2edv2;
 
 /**
  *
- * @author tiago
+ * @author tiago Classe que representa uma Lista ligada
  */
 public class LinkedList<T> {
-    private int count;
 
+    /**
+     * count - variável com o número de elementos na lista head - Node que
+     * aponta para o head da lista tail - Node que aponta para a tail da lista
+     */
+    private int count;
     private Node<T> head;
     private Node<T> tail;
 
+    /**
+     * Método construtor inicializa o count a 0 e head e tail a null
+     */
     public LinkedList() {
         this.count = 0;
         this.head = null;
         this.tail = null;
     }
 
+    /**
+     *
+     * @return o número de elementos na lista
+     */
     public int getCount() {
         return count;
     }
 
+    /**
+     * Método que adiciona um elemento na lista
+     *
+     * @param element - elemento a adicionar na lista
+     */
     public void add(T element) {
         Node<T> newNode = new Node<T>(element);
 
@@ -38,14 +54,20 @@ public class LinkedList<T> {
         this.count++;
     }
 
+    /**
+     * Método que remove um elemento da lista
+     *
+     * @param element - elemento a remover da lista
+     * @return valor booleano conforme o sucesso e o insucesso do método
+     */
     public boolean remove(T element) {
         boolean found = false;
-        
+
         //entra quando a lista está vazia
         if (this.count == 0) {
             return found;
         }
-        
+
         Node<T> previous = null;
         Node<T> current = this.head;
 
@@ -72,14 +94,16 @@ public class LinkedList<T> {
             }
             this.count--;
             return found;
-        } 
-        //entra quando o elemento a eliminar nao existe
+        } //entra quando o elemento a eliminar nao existe
         else {
             return found;
         }
 
     }
-    
+
+    /**
+     * Método que imprime todos os elementos da lista
+     */
     public void print() {
         Node<T> current = this.head;
 
@@ -88,13 +112,13 @@ public class LinkedList<T> {
             current = current.getNext();
         }
 
-        System.out.println("");
+        System.out.println("Número de elemntos na lista: " + this.count);
 
         if (this.head != null) {
-            System.out.println(this.head.getElement().toString());
+            System.out.println("Head: " + this.head.getElement().toString());
         }
         if (this.tail != null) {
-            System.out.println(this.tail.getElement().toString());
+            System.out.println("Tail: " + this.tail.getElement().toString());
         }
     }
 }
